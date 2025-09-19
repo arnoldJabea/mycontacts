@@ -1,1 +1,35 @@
+# Node and monorepo ignores
+node_modules/
+**/node_modules/
+
+# Environment files (do NOT commit secrets)
+.env
+**/.env
+.env.*
+!*.example
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs/
+*.log
+
+# Build outputs
+dist/
+build/
+coverage/
+.nyc_output/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
 # MyContacts
+node_modules/
+.env
+.env.*
+dist/
+build/

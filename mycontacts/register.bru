@@ -1,0 +1,22 @@
+meta {
+  name: register
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:4000/auth/register
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "email":"aroljabea71@gmail.com",
+    "password":"mypasbword"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

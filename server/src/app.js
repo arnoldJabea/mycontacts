@@ -10,6 +10,8 @@ app.get('/health', (req, res) => res.status(200).json({ status: 'ok' }));
 // Routes
 const authRoutes = require('./routes/auth.routes');
 app.use('/auth', authRoutes);
+const contactsRoutes = require('./routes/contacts.routes');
+app.use('/contacts', contactsRoutes);
 
 // Swagger
 const swaggerUi = require('swagger-ui-express');

@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "mycontacts",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
