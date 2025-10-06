@@ -7,8 +7,7 @@ const PORT = process.env.PORT || 4000;
   try {
     await connectDB(process.env.MONGO_URI);
     console.log('MongoDB Atlas connecté');
-    console.log('Type de app :', typeof app);
-    console.log('Contenu de app :', app);
+    console.log('DEBUG: server.js modifié et relancé');
     app.listen(PORT, () => console.log(`API http://localhost:${PORT}`));
   } catch (e) {
     console.error(e.message);

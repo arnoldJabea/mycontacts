@@ -17,6 +17,8 @@ app.use('/contacts', contactsRoutes);
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpecs = require('./swagger');
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
+// Expose raw OpenAPI JSON for Postman import
+app.get('/docs.json', (req, res) => res.json(swaggerSpecs));
 
 module.exports = app;
 
