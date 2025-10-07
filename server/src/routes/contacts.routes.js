@@ -304,7 +304,7 @@ router.delete('/:id', async (req, res) => {
   const owner = req.user.sub;
   const deleted = await Contact.findOneAndDelete({ _id: req.params.id, owner });
   if (!deleted) return res.status(404).json({ error: 'Contact introuvable' });
-  res.status(204).send();
+  res.status(200).json({ message: 'Contact supprimé' });
 });
 
 module.exports = router;

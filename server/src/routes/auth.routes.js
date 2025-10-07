@@ -42,10 +42,13 @@ router.post('/register', async (req, res) => {
       return res.status(409).json({ error: 'Utilisateur déjà existant' });
     }
 
-    const hash = await bcrypt.hash(password, 10);
-    const user = await User.create({ email: email.toLowerCase(), password: hash });
+  const hash = await bcrypt.hash(password, 10);
+  const user = await User.create({ email: email.toLowerCase(), password: hash });
 
-    return res.status(201).json({ id: user._id, email: user.email, createdAt: user.createdAt });
+  // Générer le token JWT à l'inscription
+  const jwt = require('jsonwebtoken');
+  const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1d' });
+  return res.status(201).json({ token });
   } catch (err) {
     console.error('Erreur register:', err);
     return res.status(500).json({ error: 'Erreur serveur' });

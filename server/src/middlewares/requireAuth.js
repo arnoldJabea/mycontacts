@@ -6,9 +6,10 @@ function requireAuth(req, res, next) {
   if (!token) return res.status(401).json({ error: 'Token manquant' });
 
   try {
-    const payload = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = payload; // contient sub, email
-    next();
+  const payload = jwt.verify(token, process.env.JWT_SECRET);
+  // Compatibilité : sub ou id
+  req.user = { sub: payload.sub || payload.id, email: payload.email };
+  next();
   } catch (err) {
     return res.status(401).json({ error: 'Token invalide' });
   }
