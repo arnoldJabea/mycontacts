@@ -73,8 +73,8 @@ VITE_API_URL=http://localhost:4000
 
 ## Auteur
 - Arnold Jabea
-- Contact : [ton email]
+  
 
----
+
 
 *Projet réalisé dans le cadre du Master EFREI.*
